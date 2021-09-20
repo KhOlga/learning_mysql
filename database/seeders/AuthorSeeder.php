@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Faker\Factory as Faker;
+use App\Models\Author;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AuthorSeeder extends Seeder
 {
@@ -15,13 +14,8 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-		$faker = Faker::create();
-
-		for ($i = 1; $i <= 2000; $i++) {
-			DB::table('authors')->insert([
-				'name' => $faker->lastName(),
-				'age' => rand(20, 45)
-			]);
-		}
+		Author::factory()
+			->count(200)
+			->create();
     }
 }

@@ -17,7 +17,6 @@ class CreateBooksTable extends Migration
             $table->bigIncrements('book_id');
             $table->string('name');
             $table->year('year');
-            $table->timestamps();
         });
 
     }

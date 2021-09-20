@@ -12,7 +12,7 @@ class BookController extends Controller
 		$books = DB::table('books')
 			->select('book_id AS BookID ', 'name AS Title', 'year AS PublicationYear')
 			->where('year', '>', 2000)
-			//->limit(100)
+			->limit(10)
 			->get();
 
 		return response()->json($books);

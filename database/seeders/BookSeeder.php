@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Faker\Factory as Faker;
+use App\Models\Book;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class BookSeeder extends Seeder
 {
@@ -15,12 +14,8 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-		$faker = Faker::create();
-		for ($i = 1; $i <= 100000; $i++) {
-			DB::table('books')->insert([
-				'name' =>  $faker->realText($faker->numberBetween(10, 20)),
-				'year' => rand(1998, 2010)
-			]);
-    	}
+		Book::factory()
+			->count(2000)
+			->create();
 	}
 }

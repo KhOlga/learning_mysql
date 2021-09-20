@@ -17,7 +17,6 @@ class CreateAuthorsTable extends Migration
             $table->bigIncrements('author_id');
             $table->string('name');
             $table->integer('age')->index();
-			$table->timestamps();
 
 			$table->index(['name']);
         });

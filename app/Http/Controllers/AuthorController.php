@@ -29,7 +29,7 @@ HAVING COUNT(books.book_id) > 100
 			->select('authors.author_id AS AuthorID', 'authors.name AS Author')
 			->groupBy('authors.author_id')
 			->havingRaw('COUNT(books.book_id) > ?', [100])
-			//->limit(100)
+			->limit(10)
 			->get();
 
 		return response()->json($authors);
@@ -61,7 +61,7 @@ AND age > 30
 			->whereBetween('year', [1998, 2010])
 			->where('age', '>' , 30)
 			//->having('age', '>' , 30)
-			//->limit(100)
+			->limit(10)
 			->get();
 
 		return response()->json($authors);
