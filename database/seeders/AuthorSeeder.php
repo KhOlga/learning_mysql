@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Database\Seeder;
 
 class AuthorSeeder extends Seeder
@@ -16,6 +17,7 @@ class AuthorSeeder extends Seeder
     {
 		Author::factory()
 			->count(200)
+			->has(Book::factory()->count(rand(1, 125)))
 			->create();
     }
 }
